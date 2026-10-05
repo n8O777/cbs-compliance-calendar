@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local brand source files (not for the repo: large PDFs, licensed fonts)
+/brand-assets copy/
