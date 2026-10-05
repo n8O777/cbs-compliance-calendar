@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2027 O&amp;P Compliance Calendar | CBS Medical Billing &amp; Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#00945e; --green-deep:#00664a; --ink:#1c2a24; --muted:#56655e; --paper:#fbfcfa; --card:#ffffff;
+  --tint:#e7f4ed; --line:#d6e2dc; --amber:#a86a12; --amber-tint:#fbf1df; --slate:#3e5a73; --slate-tint:#e8eef4;
+  --plum:#7a3f6e; --plum-tint:#f4e9f1;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --green:#3fc48f; --green-deep:#7fdcb5; --ink:#e6eee9; --muted:#a3b2aa; --paper:#121a16; --card:#1a241f;
+    --tint:#1d3329; --line:#2c3b34; --amber:#e5a94a; --amber-tint:#33281a; --slate:#9bb8d3; --slate-tint:#1f2a35;
+    --plum:#d79bc9; --plum-tint:#33222f;
+  }
+}
+:root[data-theme="dark"]{
+  --green:#3fc48f; --green-deep:#7fdcb5; --ink:#e6eee9; --muted:#a3b2aa; --paper:#121a16; --card:#1a241f;
+  --tint:#1d3329; --line:#2c3b34; --amber:#e5a94a; --amber-tint:#33281a; --slate:#9bb8d3; --slate-tint:#1f2a35;
+  --plum:#d79bc9; --plum-tint:#33222f;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:var(--green-deep)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{border-bottom:6px solid var(--green);padding:36px 0 28px}
+.brand{font-weight:600;color:var(--green-deep);font-size:.95rem;margin:0 0 18px}
+h1{font-size:clamp(2rem,6vw,3.1rem);font-weight:700;letter-spacing:-.01em;max-width:17ch}
+.lede{font-size:1.12rem;color:var(--muted);max-width:60ch;margin:16px 0 0}
+.asof{font-size:.85rem;color:var(--muted);margin-top:14px}
+section{padding:36px 0 8px}
+h2{font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.intro{color:var(--muted);max-width:64ch;margin:0 0 18px}
+
+/* five areas */
+.areas{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.areas li{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:12px;padding:16px 16px 14px}
+.areas .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--green);font-size:1.5rem;line-height:1}
+.areas b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.08rem;margin:6px 0 4px}
+.areas span{font-size:.92rem;color:var(--muted)}
+
+/* rules */
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rule-col{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.rule-col h3{font-size:1.15rem;color:var(--green-deep);margin-bottom:8px}
+.rule-col ul{margin:0;padding-left:18px}
+.rule-col li{font-size:.93rem;margin-bottom:8px}
+.rule-col li b{color:var(--ink)}
+.rule-src{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+@media (max-width:720px){.rules{grid-template-columns:1fr}}
+@media print{.rule-col{break-inside:avoid}}
+
+/* ABC review */
+.review-meta{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}
+.review-meta label{font-size:.85rem;font-weight:600;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.review-meta input{font:inherit;font-size:.93rem;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:200px}
+.progress{font-weight:600;color:var(--green-deep);margin:0 0 12px}
+.bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:0 0 18px;max-width:420px}
+.bar span{display:block;height:100%;background:var(--green);width:0}
+details.cat{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+details.cat summary{cursor:pointer;padding:14px 16px;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between;gap:10px;list-style:none}
+details.cat summary::-webkit-details-marker{display:none}
+details.cat summary::after{content:"+";color:var(--green);font-size:1.3rem;line-height:1}
+details.cat[open] summary::after{content:"\2013"}
+details.cat summary .cnt{font-family:"Public Sans",sans-serif;font-weight:500;font-size:.85rem;color:var(--muted);margin-left:auto}
+details.cat summary:focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:12px}
+.cat-note{font-size:.85rem;color:var(--muted);padding:0 16px 6px;margin:0}
+.chk{list-style:none;margin:0;padding:0 16px 10px}
+.chk li{display:grid;grid-template-columns:24px 1fr minmax(140px,38%);gap:10px;align-items:start;padding:8px 0;border-top:1px dashed var(--line)}
+.chk input[type=checkbox]{width:20px;height:20px;margin-top:2px;accent-color:var(--green)}
+.chk label{font-size:.93rem}
+.chk input[type=text]{font:inherit;font-size:.88rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:5px 8px;width:100%}
+@media (max-width:600px){.chk li{grid-template-columns:24px 1fr}.chk input[type=text]{grid-column:2}}
+.review-comments{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media (max-width:640px){.review-comments{grid-template-columns:1fr}}
+@media print{details.cat{break-inside:avoid}details.cat summary::after{content:""}}
+
+/* before January */
+.before{background:var(--amber-tint);border-radius:14px;padding:20px 22px}
+.before h2{font-size:1.3rem;color:var(--ink)}
+.checks{list-style:none;padding:0;margin:10px 0 0}
+.checks li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+.checks input{width:20px;height:20px;margin-top:2px;accent-color:var(--green);flex:none}
+.checks label{font-size:.96rem}
+
+/* legend / filter */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.filters button{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters button:focus-visible,.btn:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.legend{font-size:.85rem;color:var(--muted);margin:10px 0 18px}
+.legend span{white-space:nowrap;margin-right:14px;display:inline-block;margin-bottom:4px}
+.tag{display:inline-block;font-size:.74rem;font-weight:600;border-radius:6px;padding:1px 8px;vertical-align:2px}
+.t-confirmed{background:var(--tint);color:var(--green-deep)}
+.t-recurring{background:var(--slate-tint);color:var(--slate)}
+.t-estimate{background:var(--amber-tint);color:var(--amber)}
+.t-practice{background:var(--plum-tint);color:var(--plum)}
+.area-ref{font-size:.78rem;color:var(--muted);margin-left:6px}
+
+/* months */
+.month{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.month h3{font-size:1.35rem;font-weight:700;color:var(--green-deep)}
+.month h3 small{display:block;font-family:"Public Sans",sans-serif;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:2px}
+.items{list-style:none;margin:0 0 12px;padding:0}
+.items li{padding:8px 0 10px;border-bottom:1px dashed var(--line)}
+.items li:last-child{border-bottom:0}
+.date{font-weight:600;margin-right:6px}
+.items p{margin:3px 0 0;font-size:.93rem;color:var(--muted)}
+.quiet{color:var(--muted);font-size:.93rem;margin:6px 0 12px}
+label.note-label{display:block;font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:4px}
+textarea{width:100%;min-height:84px;resize:vertical;font:inherit;font-size:.95rem;color:var(--ink);background-color:var(--card);border:1px solid var(--line);border-radius:10px;padding:0 12px;
+  background-image:repeating-linear-gradient(transparent,transparent 27px,var(--line) 27px,var(--line) 28px);line-height:28px;background-attachment:local}
+@media (max-width:600px){.month{grid-template-columns:1fr;gap:8px}}
+.hidden{display:none!important}
+
+/* my dates */
+.dates-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.dates{width:100%;border-collapse:collapse;min-width:720px}
+.dates th,.dates td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:.92rem}
+.dates th{font-size:.8rem;color:var(--muted);font-weight:600;background:var(--tint)}
+.dates tr.group td{background:var(--paper);font-family:"Bricolage Grotesque",sans-serif;font-weight:700;color:var(--green-deep);font-size:.95rem;padding-top:14px}
+.dates tr:last-child td{border-bottom:0}
+.dates td.item{font-weight:600;min-width:170px}
+.dates td.item small{display:block;font-weight:400;color:var(--muted);font-size:.82rem;margin-top:2px}
+.dates input{font:inherit;font-size:.92rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 8px;width:100%}
+.dates input[type=date]{min-width:140px}
+.dates input.who{min-width:120px}
+.dates input.custom{font-weight:600}
+.remind{font-size:.85rem;color:var(--muted);min-width:130px;white-space:nowrap}
+.remind b{color:var(--ink);font-weight:600}
+
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:24px 0 0}
+.btn{font:inherit;font-size:.92rem;font-weight:600;border-radius:10px;padding:9px 16px;cursor:pointer;border:1px solid var(--green);background:var(--green);color:#fff}
+.btn.secondary{background:transparent;color:var(--green-deep)}
+.saved{font-size:.85rem;color:var(--muted)}
+
+.sources{font-size:.88rem;color:var(--muted)}
+.sources li{margin-bottom:6px}
+.cta{margin:36px 0 0;padding:24px;border-radius:14px;background:var(--tint)}
+.cta h2{font-size:1.3rem}
+.cta p{margin:8px 0 0}
+.cta-link{display:inline-block;margin-top:14px;font-weight:600;text-decoration:none;border:1px solid var(--green);background:var(--green);color:#fff;padding:9px 16px;border-radius:10px}
+.cta-link:hover{text-decoration:underline}
+blockquote{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-size:1.25rem;font-weight:500;color:var(--green-deep)}
+footer{padding:28px 0 40px;font-size:.82rem;color:var(--muted)}
+
+@media print{
+  .filters,.tools{display:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  header{padding-top:0}
+  .month,.areas li,.before{break-inside:avoid}
+  .dates-wrap{overflow:visible}
+  .dates{min-width:0}
+  textarea{border:0;border-bottom:1px solid #999;min-height:60px;background-image:repeating-linear-gradient(transparent,transparent 23px,#bbb 23px,#bbb 24px);line-height:24px}
+  .cta,.before{background:none;border:1px solid #ccc}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="brand">CBS Medical Billing &amp; Consulting</p>
+    <h1>Your 2027 O&amp;P compliance calendar</h1>
+    <p class="lede">Compliance shouldn't be managed by memory. Use this calendar to track every deadline, put a name next to each one, and set 30- and 60-day reminders before January arrives.</p>
+    <p class="asof">Regulatory information reviewed and current as of October 2, 2026. CMS requirements, payer policies, and effective dates can change. Verify current requirements with CMS, your DME MAC, your accrediting organization, applicable state authorities, and individual payers.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section aria-labelledby="five-h">
+  <h2 id="five-h">Five areas to put on your calendar</h2>
+  <ol class="areas">
+    <li><div class="n">1</div><b>Know your accreditation date</b><span>DMEPOS resurvey and reaccreditation is transitioning to at least once every 12 months. If your current three-year accreditation cycle was issued before January 1, 2026, the annual cycle generally begins when that existing cycle expires. Confirm your date, then run the <a href="#abc-review">annual self-review checklist</a>.</span></li>
+    <li><div class="n">2</div><b>Protect your Medicare enrollment and PTAN</b><span>Revalidate generally every 3 years for DMEPOS, and monitor Medicare billing activity for every enrollment/PTAN because CMS may deactivate billing privileges after six consecutive calendar months with no Medicare claims.</span></li>
+    <li><div class="n">3</div><b>Keep up with prior authorization</b><span>Upper limb prior auth phases in through April 26, 2027.</span></li>
+    <li><div class="n">4</div><b>Schedule coding and reimbursement reviews</b><span>Check HCPCS, fee schedules, and payer rules every quarter.</span></li>
+    <li><div class="n">5</div><b>Give the things without deadlines a deadline</b><span>Licenses, bonds, insurance, training, HIPAA, audits, and SOPs, each with an owner.</span></li>
+  </ol>
+</section>
+
+<section aria-labelledby="rules-h">
+  <h2 id="rules-h">What ABC and Medicare require</h2>
+  <p class="intro">The rules behind the dates. Confirm details with your own accrediting organization and the full regulation.</p>
+  <div class="rules">
+    <div class="rule-col">
+      <h3>ABC facility accreditation</h3>
+      <ul>
+        <li><b>Annual surveys began January 1, 2026.</b> CMS now requires accrediting organizations to survey DMEPOS suppliers every year, replacing the three-year cycle.</li>
+        <li><b>Expiring in 2026?</b> Your renewal runs only until 2027. After that, you apply for accreditation every year.</li>
+        <li><b>Expiring in 2027 or 2028?</b> You move to an annual survey at your next reaccreditation date.</li>
+        <li><b>New location, new owner, or new service needing a survey?</b> You also move to a one-year cycle.</li>
+        <li><b>Standards and fees</b> were unchanged for the 2026 renewal cycle. ABC says more guidance is coming before the 2027 renewal cycle.</li>
+      </ul>
+      <p class="rule-src">Source: <a href="https://www.abcop.org/facility-accreditation/navigating-dmepos-accreditation-changes-with-abc">ABC, Navigating DMEPOS Accreditation Changes</a>. Accredited by BOC or another organization? Confirm your own transition rules.</p>
+    </div>
+    <div class="rule-col">
+      <h3>Medicare DMEPOS supplier standards</h3>
+      <ul>
+        <li><b>Report changes within 30 days.</b> Any change to your enrollment information, including location, ownership, and licensure (42 CFR 424.57(c)).</li>
+        <li><b>Accredit every location separately.</b> Each location, owned or subcontracted, must meet the quality standards and be accredited to bill Medicare.</li>
+        <li><b>Tell your accrediting organization</b> when you open a new location.</li>
+        <li><b>Carry at least $300,000 in liability insurance.</b> If you fabricate your own items, it must also cover product liability and completed operations. A lapse can mean revocation back to the lapse date.</li>
+        <li><b>Meet surety bond requirements</b> unless you qualify for an exemption (42 CFR 424.57(d)).</li>
+        <li><b>Give each Medicare patient the supplier standards</b> and keep a complaint resolution protocol.</li>
+        <li><b>Monitor Medicare billing activity for every enrollment/PTAN.</b> CMS may deactivate Medicare billing privileges when no Medicare claims are submitted for six consecutive calendar months (42 CFR 424.540).</li>
+      </ul>
+      <p class="rule-src">Sources: <a href="https://palmettogba.com/palmetto/providers.nsf/files/Abbreviated%20Standards_020816.pdf/$FILE/Abbreviated%20Standards_020816.pdf">Medicare DMEPOS Supplier Standards (Palmetto GBA)</a>; <a href="https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-424/subpart-P/section-424.540">eCFR 42 CFR 424.540</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="before-h">
+  <div class="before">
+    <h2 id="before-h">Before January: check your 2026 changes</h2>
+    <ul class="checks">
+      <li><input type="checkbox" id="c1" data-k="c1"><label for="c1">Prior authorization added in 2026 (L0651, L1844, L1846, L1852, L1932 in April; L0456, L0457, L0486, L1833 on Oct 28) is built into intake and authorization workflows.</label></li>
+      <li><input type="checkbox" id="c2" data-k="c2"><label for="c2">Face-to-face encounter and written order before delivery are in place for codes added Oct 28, 2026, including L1906, L1933, L1952, L3761, and L3916. For affected items, confirm the applicable face-to-face encounter timing and that the written order is communicated before delivery.</label></li>
+      <li><input type="checkbox" id="c3" data-k="c3"><label for="c3">If you are newly enrolled or underwent an applicable ownership change approved on or after Oct 15, 2026, determine whether probationary prior authorization applies and track your individual probationary period.</label></li>
+      <li><input type="checkbox" id="c4" data-k="c4"><label for="c4">Medicare billing activity has been reviewed for every enrollment/PTAN so potential six-month inactivity deactivation risk is identified early.</label></li>
+      <li><input type="checkbox" id="c5" data-k="c5"><label for="c5">Your accreditation date is confirmed with your accrediting organization, and you know whether your next renewal is annual.</label></li>
+      <li><input type="checkbox" id="c6" data-k="c6"><label for="c6">Liability insurance (at least $300,000) and surety bond, if required, are current, and their renewal dates are on your calendar.</label></li>
+      <li><input type="checkbox" id="c7" data-k="c7"><label for="c7">Any 2026 change in location, ownership, or licensure was reported to Medicare within 30 days and to your accrediting organization.</label></li>
+    </ul>
+  </div>
+</section>
+
+<section aria-labelledby="cal-h">
+  <h2 id="cal-h">2027 month by month</h2>
+  <p class="intro">Tap a label to show only that kind of date. Use the lined space under each month for your own deadlines and reminders.</p>
+  <div class="filters" role="group" aria-label="Filter dates">
+    <button type="button" data-f="all" aria-pressed="true">All dates</button>
+    <button type="button" data-f="confirmed" aria-pressed="false">Confirmed</button>
+    <button type="button" data-f="recurring" aria-pressed="false">Recurring</button>
+    <button type="button" data-f="estimate" aria-pressed="false">Estimate</button>
+    <button type="button" data-f="practice" aria-pressed="false">Your practice</button>
+  </div>
+  <p class="legend">
+    <span><span class="tag t-confirmed">Confirmed</span> published by CMS</span>
+    <span><span class="tag t-recurring">Recurring</span> happens every year</span>
+    <span><span class="tag t-estimate">Estimate</span> target or past-year timing</span>
+    <span><span class="tag t-practice">Your practice</span> depends on your dates</span>
+  </p>
+  <div id="months"></div>
+</section>
+
+<div class="cta">
+  <h2>Need help staying ahead of all of this?</h2>
+  <p>You don’t have to manage compliance alone. CBS Medical Billing &amp; Consulting helps O&amp;P practices stay on top of Medicare enrollment, accreditation readiness, coding and reimbursement changes, prior authorization requirements, documentation, audits, payer requirements, and operational compliance.</p>
+  <p><strong>Let CBS help you identify the gaps before they become problems.</strong></p>
+  <a class="cta-link" href="mailto:info@cbsmedicalbilling.com?subject=O%26P%20Compliance%20Support">Talk to CBS About Your Practice &rarr;</a>
+</div>
+
+<section aria-labelledby="my-h">
+  <h2 id="my-h">Your practice's deadlines</h2>
+  <p class="intro">A deadline that everyone is responsible for often becomes a deadline no one is responsible for. Add the date and a name for each item, and your 60- and 30-day reminder dates fill in automatically. Use the blank rows at the end for anything else.</p>
+  <div class="dates-wrap">
+  <table class="dates">
+    <thead><tr><th scope="col">Item</th><th scope="col">Due date</th><th scope="col">Responsible person</th><th scope="col">Reminders</th></tr></thead>
+    <tbody id="mydates"></tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="abc-h" id="abc-review">
+  <h2 id="abc-h">Annual facility self-review checklist</h2>
+  <p class="intro">With accreditation surveys now every year, walk through your facility well before your accreditation date, ideally 90 days ahead, so there's time to fix what you find. Check off what's in place and add notes.</p>
+  <div class="review-meta">
+    <label>Review date<input type="date" data-k="abc-date"></label>
+    <label>Reviewer<input type="text" data-k="abc-who" placeholder="Name"></label>
+    <label>Accreditation date<input type="date" data-k="abc-acc"></label>
+  </div>
+  <p class="progress" id="abc-progress" aria-live="polite"></p>
+  <div class="bar" aria-hidden="true"><span id="abc-bar"></span></div>
+  <div id="abc-cats"></div>
+  <div class="review-comments">
+    <div><label class="note-label" for="abc-comments">Additional comments</label><textarea id="abc-comments" data-k="abc-comments"></textarea></div>
+    <div><label class="note-label" for="abc-recs">General recommendations</label><textarea id="abc-recs" data-k="abc-recs"></textarea></div>
+  </div>
+  <p class="rule-src">A general readiness checklist from CBS Medical Billing &amp; Consulting, built around common survey areas and the Medicare DMEPOS supplier standards. It doesn't replace your accrediting organization's standards. Check theirs for the full requirements.</p>
+</section>
+
+<div class="tools">
+  <button type="button" class="btn" id="print">Print or save as PDF</button>
+  <button type="button" class="btn secondary" id="clear">Clear my entries</button>
+  <span class="saved" id="saved" aria-live="polite">Your entries save on this device only.</span>
+</div>
+
+<div class="cta">
+  <blockquote>Compliance shouldn't begin when the audit letter arrives.</blockquote>
+  <p>Staying compliant is an ongoing process—not a once-a-year project. CBS Medical Billing &amp; Consulting works with O&amp;P practices nationwide to identify compliance gaps, strengthen workflows, prepare for audits and accreditation, and protect reimbursement.</p>
+  <p><strong>Need help keeping your practice on track? Let CBS be part of your compliance team.</strong></p>
+  <a class="cta-link" href="mailto:info@cbsmedicalbilling.com?subject=O%26P%20Compliance%20Support">Talk to CBS About Your Practice &rarr;</a>
+</div>
+
+<section aria-labelledby="src-h">
+  <h2 id="src-h">Sources</h2>
+  <ul class="sources">
+    <li><a href="https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-and-pre-claim-review-initiatives/prior-authorization-process-certain-durable-medical-equipment-prosthetics-orthotics-and-supplies">CMS: Prior authorization for certain DMEPOS items</a> (upper limb phases, exemption cycle)</li>
+    <li><a href="https://aopanet.org/three-important-updates-from-cms/">AOPA: Three important updates from CMS</a> and <a href="https://med.noridianmedicare.com/web/jadme/article-detail/-/view/6547796/required-list-for-face-to-face-encounter-f2f-and-written-order-prior-to-delivery-wopd-update-effective-october-28-2026">Noridian: Face-to-face and WOPD list update, Oct 28, 2026</a></li>
+    <li><a href="https://www.hmenews.com/article/cms-updates-several-dmepos-lists">HME News: CMS updates several DMEPOS lists</a> (April 13, 2026 prior auth additions)</li>
+    <li><a href="https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/probationary-prior-authorization-process-newly-enrolled-suppliers-certain-durable-medical-equipment">CMS: Probationary prior authorization for newly enrolled suppliers</a></li>
+    <li><a href="https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-B/part-424/subpart-P/section-424.540">eCFR: 42 CFR 424.540, deactivation of billing privileges</a></li>
+    <li><a href="https://palmettogba.com/palmetto/providers.nsf/files/Abbreviated%20Standards_020816.pdf/$FILE/Abbreviated%20Standards_020816.pdf">Medicare DMEPOS Supplier Standards, 42 CFR 424.57(c) (Palmetto GBA summary)</a></li>
+    <li><a href="https://www.abcop.org/facility-accreditation/navigating-dmepos-accreditation-changes-with-abc">ABC: Navigating DMEPOS accreditation changes</a></li>
+    <li><a href="https://www.cms.gov/initiatives/burden-reduction/overview/interoperability/policies-regulations/cms-interoperability-prior-authorization-final-rule-cms-0057-f">CMS: Interoperability and Prior Authorization Final Rule (CMS-0057-F)</a></li>
+    <li><a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Monitoring-Programs/Medicare-FFS-Compliance-Programs/DMEPOS/Downloads/Operational-Guide-for-DMEPOS-PA-current.pdf">CMS: DMEPOS Prior Authorization Operational Guide</a> (exemption cycle dates)</li>
+    <li><a href="https://www.cms.gov/newsroom/fact-sheets/durable-medical-equipment-prosthetics-orthotics-supplies-competitive-bidding-program-updates">CMS: Competitive bidding program updates</a></li>
+  </ul>
+  <p class="sources">This calendar is provided by CBS Medical Billing &amp; Consulting for educational purposes and general compliance planning only and is not legal advice. Medicare requirements, effective dates, payer policies, and accreditation requirements may change. Practices should verify current requirements with CMS, their DME MAC, accrediting organization, applicable state authorities, and individual payers.</p>
+</section>
+
+</main>
+
+<footer><div class="wrap">CBS Medical Billing &amp; Consulting · 19 Hampton Rd, Building B, Unit 16, Exeter, NH 03833 · cbsmedicalbilling.com</div></footer>
+
+<script>
+const MONTHS = [
+  {m:"January", items:[
+    {d:"Jan 1", t:"recurring", a:4, h:"Annual fee schedule and HCPCS updates take effect", p:"Confirm your system and fee schedules were updated correctly."},
+    {d:"Jan 1", t:"confirmed", a:3, h:"CMS Interoperability and Prior Authorization API requirements begin", p:"Impacted payers must implement specified FHIR-based API requirements, including Prior Authorization APIs. Check with your payers and software vendors about availability and workflow integration."},
+    {d:"Jan 26", t:"confirmed", a:3, h:"Upper limb prior auth (L3761, L3916) phase two begins", p:"Adds AZ, GA, IL, MA, OH, OR, PA, and TX to CA, FL, MI, and NY."},
+    {d:"January", t:"practice", a:5, h:"Assign an owner to every deadline on this calendar", p:"Set 30- and 60-day reminders for each one."},
+    {d:"90 days before your accreditation date", t:"practice", a:1, h:"Complete the annual facility self-review", p:"Use the checklist below so there's time to fix gaps before your survey."},
+    {d:"Early 2027", t:"estimate", a:1, h:"Watch for ABC guidance on the 2027 renewal cycle", p:"ABC has said detailed instructions are coming for the annual cycle."}
+  ]},
+  {m:"February", items:[
+    {d:"February", t:"practice", a:5, h:"Annual staff compliance training", p:"Keep sign-in records."}
+  ], quiet:"No fixed federal dates."},
+  {m:"March", items:[
+    {d:"March", t:"practice", a:3, h:"Train staff for nationwide upper limb prior auth", p:"Takes effect in every state on April 26."}
+  ], quiet:"No fixed federal dates."},
+  {m:"April", items:[
+    {d:"Apr 1", t:"recurring", a:4, h:"Quarterly coding and reimbursement review", p:"HCPCS changes from the biannual cycle often take effect now."},
+    {d:"Apr 2", t:"confirmed", a:3, h:"Prior authorization exemption notices", p:"Suppliers in the exemption process may receive continued-exemption or withdrawal notices based on applicable claim-review results; a 90% or greater claim approval rate is required for continued exemption."},
+    {d:"Apr 30", t:"confirmed", a:3, h:"Prior authorization exemption opt-out deadline", p:"Suppliers choosing to opt out of the exemption process must submit the request to their DME MAC by April 30."},
+    {d:"Apr 26", t:"confirmed", a:3, h:"Upper limb prior auth (L3761, L3916) goes nationwide", p:""}
+  ]},
+  {m:"May", items:[
+    {d:"May", t:"practice", a:2, h:"Mid-year Medicare enrollment/PTAN activity check", p:"Review Medicare billing activity for every enrollment/PTAN and address potential six-month inactivity deactivation risk."},
+    {d:"May 18", t:"confirmed", a:3, h:"Advance PAR submission may begin for suppliers losing exemption", p:"Suppliers losing exemption may begin submitting prior authorization requests in advance of the June 1 cycle."},
+    {d:"May", t:"practice", a:1, h:"Mid-year safety check", p:"Fire drill, first aid kits, extinguisher inspections, and chemical labels."}
+  ], quiet:"No fixed federal dates."},
+  {m:"June", items:[
+    {d:"Jun 1", t:"confirmed", a:3, h:"New annual prior authorization exemption cycle begins", p:""}
+  ]},
+  {m:"July", items:[
+    {d:"Jul 1", t:"recurring", a:4, h:"Quarterly coding and reimbursement review", p:""},
+    {d:"Early July", t:"estimate", a:4, h:"CY 2028 DMEPOS proposed rule released", p:"Look for O&P changes coming in 2028."}
+  ]},
+  {m:"August", items:[
+    {d:"End of August", t:"estimate", a:4, h:"Comment deadline on the proposed rule", p:""}
+  ]},
+  {m:"September", items:[
+    {d:"Late summer to fall", t:"estimate", a:4, h:"Competitive bidding contracts announced", p:"Affects off-the-shelf back, knee, and upper extremity braces starting in 2028."}
+  ]},
+  {m:"October", items:[
+    {d:"Oct 1", t:"recurring", a:4, h:"Quarterly review and annual ICD-10-CM update", p:"Update diagnosis codes in templates."},
+    {d:"Individual date", t:"practice", a:3, h:"Track probationary prior authorization period", p:"For affected suppliers, the one-year probationary period is tied to the supplier's own applicable start date; confirm and track your date."}
+  ]},
+  {m:"November", items:[
+    {d:"Nov 15", t:"recurring", a:2, h:"Medicare participation decision window opens", p:"Runs through Dec 31."},
+    {d:"Late November", t:"estimate", a:4, h:"CY 2028 DMEPOS final rule released", p:""},
+    {d:"November", t:"practice", a:5, h:"HIPAA risk assessment and policy and SOP review", p:""},
+    {d:"November", t:"practice", a:1, h:"Patient satisfaction survey analysis and performance management plan review", p:"Document improvements for your next survey."}
+  ]},
+  {m:"December", items:[
+    {d:"December", t:"practice", a:5, h:"Build your 2028 compliance calendar", p:"Carry forward every date and owner."}
+  ]}
+];
+const AREA = {1:"Accreditation",2:"Enrollment and PTAN",3:"Prior authorization",4:"Coding and reimbursement",5:"Practice Compliance"};
+const LABEL = {confirmed:"Confirmed", recurring:"Recurring", estimate:"Estimate", practice:"Your practice"};
+const MY = [
+  {g:"1. Accreditation"},
+  {i:"Accreditation renewal", s:"At least every 12 months once your current cycle expires"},
+  {i:"Additional locations: accreditation", s:"Each location is accredited separately", c:true},
+  {i:"Annual facility self-review", s:"About 90 days before your accreditation date"},
+  {g:"2. Medicare enrollment and PTAN"},
+  {i:"Medicare revalidation", s:"Generally every 3 years for DMEPOS"},
+  {i:"PECOS enrollment accuracy review", s:"Verify locations, ownership, contacts, and enrollment information"},
+  {i:"NPPES/NPI accuracy review", s:"Verify NPI records and practice information"},
+  {i:"PTAN 1: Medicare billing activity check", s:"Monitor for six consecutive calendar months with no Medicare claims", c:true},
+  {i:"PTAN 2: Medicare billing activity check", s:"Monitor for six consecutive calendar months with no Medicare claims", c:true},
+  {i:"PTAN 3: Medicare billing activity check", s:"Monitor for six consecutive calendar months with no Medicare claims", c:true},
+  {g:"3. Prior authorization"},
+  {i:"Probationary prior auth period", s:"Certain newly enrolled suppliers or applicable ownership changes only"},
+  {i:"Prior auth exemption status", s:"Cycle renews June 1"},
+  {g:"4. Coding and reimbursement"},
+  {i:"Quarterly code and fee review", s:"January, April, July, October"},
+  {i:"Payer fee schedule review", s:"Commercial and Medicaid contracts"},
+  {g:"5. Things without deadlines"},
+  {i:"State licenses", s:"Report licensure changes to Medicare within 30 days"},
+  {i:"Professional credentials", s:"ABC or BOC and CE cycle"},
+  {i:"Surety bond", s:"42 CFR 424.57(d), unless exempt"},
+  {i:"Liability insurance", s:"At least $300,000; a lapse can mean retroactive revocation"},
+  {i:"CAQH attestation/review", s:""},
+  {i:"Commercial payer recredentialing", s:""},
+  {i:"Medicaid recredentialing", s:""},
+  {i:"Payer credentialing", s:""},
+  {i:"Practitioner license/certification and CE deadlines", s:""},
+  {i:"Employee exclusion screening", s:""},
+  {i:"Cybersecurity/security risk review", s:""},
+  {i:"Employee training", s:""},
+  {i:"HIPAA Security Risk Analysis", s:""},
+  {i:"Documentation and coding audit", s:""},
+  {i:"Policies and SOPs review", s:"Include complaint resolution protocol and supplier standards notice"},
+  {g:"Your own items"},
+  {i:"", s:"", c:true},{i:"", s:"", c:true},{i:"", s:"", c:true},{i:"", s:"", c:true},{i:"", s:"", c:true}
+];
+
+const KEY = "cbs-op-cal-2027-v2";
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { store = {}; }
+function save(){
+  try { localStorage.setItem(KEY, JSON.stringify(store)); document.getElementById("saved").textContent = "Saved on this device."; }
+  catch(e){ document.getElementById("saved").textContent = "Entries can't be saved in this browser. Print or save as PDF to keep them."; }
+}
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function minus(iso, days){
+  const p = iso.split("-").map(Number); if (p.length !== 3 || !p[0]) return "";
+  const d = new Date(Date.UTC(p[0], p[1]-1, p[2] - days));
+  return MON.at(d.getUTCMonth()) + " " + d.getUTCDate() + ", " + d.getUTCFullYear();
+}
+
+document.getElementById("months").innerHTML = MONTHS.map((mo,i) => {
+  const items = mo.items.map(it => `<li data-t="${it.t}"><span class="date">${esc(it.d)}</span><span class="tag t-${it.t}">${LABEL[it.t]}</span><span class="area-ref">${AREA[it.a]}</span><div>${esc(it.h)}</div>${it.p?`<p>${esc(it.p)}</p>`:""}</li>`).join("");
+  return `<div class="month"><h3>${mo.m}<small>2027</small></h3><div>
+    ${items?`<ul class="items">${items}</ul>`:""}${mo.quiet?`<p class="quiet">${esc(mo.quiet)}</p>`:""}
+    <label class="note-label" for="n${i}">Your notes for ${mo.m}</label>
+    <textarea id="n${i}" data-k="n${i}" placeholder="Add your own deadlines, payer dates, or reminders"></textarea>
+  </div></div>`;
+}).join("");
+
+let r = 0;
+document.getElementById("mydates").innerHTML = MY.map(row => {
+  if (row.g) return `<tr class="group"><td colspan="4">${esc(row.g)}</td></tr>`;
+  const k = "r" + (r++);
+  const name = row.c
+    ? `<input class="custom" data-k="${k}i" aria-label="Item name" placeholder="${row.i ? esc(row.i) : "Add an item"}" value="">${row.s?`<small>${esc(row.s)}</small>`:""}`
+    : `${esc(row.i)}${row.s?`<small>${esc(row.s)}</small>`:""}`;
+  return `<tr><td class="item">${name}</td>
+    <td><input type="date" data-k="${k}d" data-r="${k}" aria-label="Due date"></td>
+    <td><input class="who" data-k="${k}w" aria-label="Responsible person" placeholder="Name"></td>
+    <td class="remind" id="${k}m">Add a date</td></tr>`;
+}).join("");
+
+
+const ABC = [
+  {c:"Business and enrollment records", i:["Formation documents on file (articles, bylaws, or operating agreement)","Business licenses current for every location","Certificate of occupancy on file","Medicare enrollment matches your current locations, owners, and key staff","Accreditation certificate on file for every location","Liability insurance certificate current, at least $300,000","Surety bond current, or exemption documented"]},
+  {c:"Staff and credentials", i:["Current licenses and certifications on file for every clinician","Job descriptions match each person's credentials and duties","Roster of clinical staff with titles and responsibilities","Duties and privileging documented for staff without clinical credentials","OIG exclusion screening done for all staff","I-9 and W-4 on file for all employees","Annual performance reviews completed"]},
+  {c:"Policies and programs", i:["Policy and procedure manual reviewed and updated this year","Employee handbook current","Quality or performance improvement plan reviewed this year","Patient satisfaction results analyzed and improvements documented","Safety program reviewed this year","HIPAA policies current, with a named privacy contact"]},
+  {c:"Facility and postings", i:["Accessible parking marked, if you have a lot","Hours of operation posted at the entrance","Medicare supplier standards posted","HIPAA notice and privacy contact posted","Financial policy posted","Business license and clinician licenses or certifications posted","Emergency numbers posted","Evacuation plan posted; exits lit and marked"]},
+  {c:"Patient communication", i:["Patients told the expected timeline for their device","Patients told their financial responsibility up front","Treatment goals and expected outcomes discussed","Patient rights provided","Device use, care, maintenance, and precautions explained","Follow-up schedule given","After-hours contact provided","Complaint process in place, with a form patients can use","Payment authorization form on file","Warranty policy provided","Copy of the supplier standards given to Medicare patients"]},
+  {c:"Exam room privacy and safety", i:["Conversations can't be overheard","Windows covered for privacy","No records or images from earlier patients left in the room","Evacuation route posted inside the room","Walking aids available for patients who need them"]},
+  {c:"Lab and workplace safety", i:["Safety orientation documented for every employee","Staff trained on fire extinguisher location and use","Extinguishers in place, with current inspections","Fire drill held and documented, with who attended and what to improve","Every employee knows their role in the evacuation plan","First aid kits stocked and in date","Lab clean, with staff-only signage on the doors","Flammables stored in a labeled cabinet","All chemical containers clearly and permanently labeled","Bloodborne pathogen training documented","Eye and ear protection available","Guards in place on machinery","Equipment inventory and maintenance log current"]},
+  {c:"Billing and compliance", i:["Compliance contact designated and meeting regularly with leadership","Billing staff training documented","Documentation and coding audit completed","Prior authorization and order requirements built into intake"]}
+];
+document.getElementById("abc-cats").innerHTML = ABC.map((cat,ci) =>
+  `<details class="cat"${ci===0?" open":""}><summary>${esc(cat.c)}<span class="cnt" id="abc-cnt${ci}"></span></summary>${cat.n?`<p class="cat-note">${esc(cat.n)}</p>`:""}<ul class="chk">` +
+  cat.i.map((it,ii) => `<li><input type="checkbox" id="g${ci}_${ii}" data-k="g${ci}_${ii}" data-abc="${ci}"><label for="g${ci}_${ii}">${esc(it)}</label><input type="text" data-k="g${ci}_${ii}n" aria-label="Notes: ${esc(it)}" placeholder="Notes"></li>`).join("") +
+  `</ul></details>`).join("");
+function abcProgress(){
+  let done=0,total=0;
+  ABC.forEach((cat,ci) => {
+    const boxes=[...document.querySelectorAll(`input[data-abc="${ci}"]`)], d=boxes.filter(b=>b.checked).length;
+    done+=d; total+=boxes.length;
+    document.getElementById("abc-cnt"+ci).textContent = d+" of "+boxes.length;
+  });
+  document.getElementById("abc-progress").textContent = done+" of "+total+" items checked";
+  document.getElementById("abc-bar").style.width = (total?Math.round(done/total*100):0)+"%";
+}
+function renderRemind(k, v){
+  const el = document.getElementById(k + "m"); if (!el) return;
+  el.innerHTML = v ? `<b>60 days:</b> ${minus(v,60)}<br><b>30 days:</b> ${minus(v,30)}` : "Add a date";
+}
+document.querySelectorAll("[data-k]").forEach(el => {
+  const k = el.dataset.k;
+  if (el.type === "checkbox") { el.checked = !!store[k]; el.addEventListener("change", () => { store[k] = el.checked; save(); if (el.dataset.abc) abcProgress(); }); return; }
+  if (store[k]) el.value = store[k];
+  if (el.dataset.r) renderRemind(el.dataset.r, el.value);
+  el.addEventListener("input", () => { store[k] = el.value; if (el.dataset.r) renderRemind(el.dataset.r, el.value); save(); });
+});
+
+abcProgress();
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  const f = b.dataset.f;
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  document.querySelectorAll(".items li").forEach(li => li.classList.toggle("hidden", f !== "all" && li.dataset.t !== f));
+}));
+document.getElementById("print").addEventListener("click", () => window.print());
+document.getElementById("clear").addEventListener("click", () => {
+  if (!confirm("Clear all your entries on this device?")) return;
+  store = {}; try { localStorage.removeItem(KEY); } catch(e) {}
+  document.querySelectorAll("[data-k]").forEach(el => { if (el.type === "checkbox") el.checked = false; else el.value = ""; if (el.dataset.r) renderRemind(el.dataset.r, ""); });
+  abcProgress(); document.getElementById("saved").textContent = "Entries cleared.";
+});
+</script>
+</body>
+</html>
