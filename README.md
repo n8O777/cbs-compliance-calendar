@@ -1,7 +1,7 @@
 # CBS O&P Compliance Calendar
 
 Interactive O&P compliance calendar for CBS Medical Billing & Consulting.
-Built with Next.js (App Router), TypeScript, and Tailwind CSS, deployed on Vercel.
+Built with Next.js (App Router) and TypeScript, deployed on Vercel.
 
 ## Routes
 

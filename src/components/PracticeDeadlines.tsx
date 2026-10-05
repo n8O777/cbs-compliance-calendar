@@ -23,6 +23,8 @@ function Reminders({ rowId }: { rowId: string }) {
   );
 }
 
+// `data-label` supplies the visible field labels in the mobile card layout
+// (see globals.css); the desktop table uses its column headers instead.
 export function PracticeDeadlines({ groups }: { groups: DeadlineGroup[] }) {
   return (
     <div className="dates-wrap">
@@ -45,21 +47,30 @@ export function PracticeDeadlines({ groups }: { groups: DeadlineGroup[] }) {
                 <tr key={row.id}>
                   <td className="item">
                     {row.editableName ? (
-                      <StoredInput
-                        field={`${row.id}i`}
-                        className="custom"
-                        aria-label="Item name"
-                        placeholder={row.item || "Add an item"}
-                      />
+                      <>
+                        {/* Mobile only (hidden elsewhere by globals.css): the full
+                            default name, which the input's placeholder may truncate. */}
+                        {row.item && (
+                          <span className="name-hint" aria-hidden="true">
+                            {row.item}
+                          </span>
+                        )}
+                        <StoredInput
+                          field={`${row.id}i`}
+                          className="custom"
+                          aria-label="Item name"
+                          placeholder={row.item || "Add an item"}
+                        />
+                      </>
                     ) : (
                       row.item
                     )}
                     {row.sub && <small>{row.sub}</small>}
                   </td>
-                  <td>
+                  <td data-label="Due date">
                     <StoredInput field={`${row.id}d`} type="date" aria-label="Due date" />
                   </td>
-                  <td>
+                  <td data-label="Responsible person">
                     <StoredInput
                       field={`${row.id}w`}
                       className="who"

@@ -171,3 +171,30 @@ footer{padding:28px 0 40px;font-size:.82rem;color:var(--muted)}
   .items li.hidden{display:list-item!important}
   details.cat[open] summary::after{content:""} /* Migration: no +/– markers in print, even on expanded categories */
 }
+
+/*
+ * UX: on narrow screens, "Your practice's deadlines" becomes stacked cards
+ * instead of a horizontally scrolling table: item name, due date, its 60/30-day
+ * reminders (secondary, directly under the date), then responsible person.
+ * Screen only, so print keeps the original table. Desktop is unchanged.
+ * 767px: below this the 720px-min table no longer fits in .wrap.
+ */
+.dates .name-hint{display:none}
+@media screen and (max-width:767px){
+  .dates-wrap{overflow:visible;border:0;border-radius:0;background:none}
+  .dates,.dates tbody,.dates tr,.dates td{display:block;min-width:0}
+  .dates{min-width:0}
+  .dates thead{display:none}
+  .dates tr{display:grid;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
+  .dates tr.group{background:none;border:0;border-radius:0;padding:14px 0 2px;margin:0}
+  .dates tr.group td{background:none;padding:0;font-size:1.05rem}
+  .dates th,.dates td{padding:0;border-bottom:0}
+  .dates td.item{min-width:0;font-size:1rem}
+  .dates td[data-label="Due date"]{order:1}
+  .dates td.remind{order:2;min-width:0;margin-top:-6px;padding-left:10px;border-left:3px solid var(--line)}
+  .dates td[data-label="Responsible person"]{order:3}
+  .dates td[data-label]::before{content:attr(data-label);display:block;font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:4px}
+  .dates input{display:block;font-size:1rem;min-height:44px;padding:9px 12px}
+  .dates input[type=date],.dates input.who{min-width:0}
+  .dates .name-hint{display:block;font-size:.82rem;font-weight:600;color:var(--muted);line-height:1.35;margin-bottom:4px}
+}
