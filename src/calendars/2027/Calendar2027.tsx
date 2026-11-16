@@ -1,4 +1,3 @@
-import { BeforeJanuaryChecklist } from "@/components/BeforeJanuaryChecklist";
 import { CalendarStoreProvider } from "@/components/CalendarStore";
 import { FacilityReview } from "@/components/FacilityReview";
 import { MonthlyCalendar } from "@/components/MonthlyCalendar";
@@ -7,6 +6,7 @@ import { Toolbar } from "@/components/Toolbar";
 import { STORAGE_KEY, YEAR } from "./config";
 import { SiteHeader } from "@/components/SiteHeader";
 import type { ProgressFields } from "@/components/progress";
+import { BeforeJanuary } from "./content/BeforeJanuary";
 import { HelpCta, TeamCta } from "./content/Ctas";
 import { FiveAreas } from "./content/FiveAreas";
 import { Footer, PrintHeader } from "./content/Footer";
@@ -53,12 +53,7 @@ export function Calendar2027() {
         <FiveAreas />
         <Rules />
 
-        <section aria-labelledby="before-h">
-          <div className="before">
-            <h2 id="before-h">Before January: check your 2026 changes</h2>
-            <BeforeJanuaryChecklist items={beforeJanuaryChecks} />
-          </div>
-        </section>
+        <BeforeJanuary />
 
         <section aria-labelledby="cal-h">
           <h2 id="cal-h">2027 month by month</h2>
