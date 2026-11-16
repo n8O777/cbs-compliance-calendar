@@ -1,15 +1,18 @@
-// "Your practice's deadlines" table rows, grouped as in the original.
+// "Your practice's deadlines" rows, grouped as in the original. Group numbers
+// (01–06) are added by the component.
 // Copied verbatim from the client's finalized reference file
 // (reference/erin-2027-complinace-calendar.html). Do not edit wording without approval.
 //
 // Each row `id` is a stable localStorage prefix: `<id>d` due date, `<id>w` responsible
-// person, and `<id>i` item name (rows with `editableName` only).
+// person, and `<id>i` item name (rows with `editableName` only). The "Your own
+// items" rows below are only the defaults; visitors can add and remove rows
+// (see components/customRows.ts).
 
 import type { DeadlineGroup } from "@/lib/types";
 
 export const deadlineGroups: DeadlineGroup[] = [
   {
-    title: "1. Accreditation",
+    title: "Accreditation",
     rows: [
       { id: "r0", item: "Accreditation renewal", sub: "At least every 12 months once your current cycle expires" },
       { id: "r1", item: "Additional locations: accreditation", sub: "Each location is accredited separately", editableName: true },
@@ -17,7 +20,7 @@ export const deadlineGroups: DeadlineGroup[] = [
     ],
   },
   {
-    title: "2. Medicare enrollment and PTAN",
+    title: "Medicare enrollment and PTAN",
     rows: [
       { id: "r3", item: "Medicare revalidation", sub: "Generally every 3 years for DMEPOS" },
       { id: "r4", item: "PECOS enrollment accuracy review", sub: "Verify locations, ownership, contacts, and enrollment information" },
@@ -28,21 +31,21 @@ export const deadlineGroups: DeadlineGroup[] = [
     ],
   },
   {
-    title: "3. Prior authorization",
+    title: "Prior authorization",
     rows: [
       { id: "r9", item: "Probationary prior auth period", sub: "Certain newly enrolled suppliers or applicable ownership changes only" },
       { id: "r10", item: "Prior auth exemption status", sub: "Cycle renews June 1" },
     ],
   },
   {
-    title: "4. Coding and reimbursement",
+    title: "Coding and reimbursement",
     rows: [
       { id: "r11", item: "Quarterly code and fee review", sub: "January, April, July, October" },
       { id: "r12", item: "Payer fee schedule review", sub: "Commercial and Medicaid contracts" },
     ],
   },
   {
-    title: "5. Things without deadlines",
+    title: "Things without deadlines",
     rows: [
       { id: "r13", item: "State licenses", sub: "Report licensure changes to Medicare within 30 days" },
       { id: "r14", item: "Professional credentials", sub: "ABC or BOC and CE cycle" },

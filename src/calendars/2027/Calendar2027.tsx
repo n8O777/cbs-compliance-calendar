@@ -1,13 +1,13 @@
 import { CalendarStoreProvider } from "@/components/CalendarStore";
 import { FacilityReview } from "@/components/FacilityReview";
 import { MonthlyCalendar } from "@/components/MonthlyCalendar";
-import { PracticeDeadlines } from "@/components/PracticeDeadlines";
 import { Toolbar } from "@/components/Toolbar";
 import { STORAGE_KEY, YEAR } from "./config";
 import { SiteHeader } from "@/components/SiteHeader";
 import type { ProgressFields } from "@/components/progress";
 import { Eyebrow } from "@/components/ui";
 import { BeforeJanuary } from "./content/BeforeJanuary";
+import { Deadlines } from "./content/Deadlines";
 import { HelpCta, TeamCta } from "./content/Ctas";
 import { FiveAreas } from "./content/FiveAreas";
 import { Footer, PrintHeader } from "./content/Footer";
@@ -79,11 +79,7 @@ export function Calendar2027() {
 
         <HelpCta />
 
-        <section aria-labelledby="my-h">
-          <h2 id="my-h">Your practice&apos;s deadlines</h2>
-          <p className="intro">A deadline that everyone is responsible for often becomes a deadline no one is responsible for. Add the date and a name for each item, and your 60- and 30-day reminder dates fill in automatically. Use the blank rows at the end for anything else.</p>
-          <PracticeDeadlines groups={deadlineGroups} />
-        </section>
+        <Deadlines />
 
         <section aria-labelledby="abc-h" id="abc-review">
           <h2 id="abc-h">Annual facility self-review checklist</h2>

@@ -1,1 +1,158 @@
-/* deadlines section. */
+/* Your practice's deadlines (#deadlines). */
+.dl { background: var(--paper); }
+.dl__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.dl__intro { flex: 1 1 520px; min-width: 0; }
+.dl__intro .h2 { margin-bottom: 14px; }
+.dl__intro .lead { font-size: 17px; max-width: 720px; }
+.dl__counter { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.dl__count { font-family: var(--display); font-weight: 900; font-size: 30px; color: var(--green-900); line-height: 1; }
+.dl__count span { font-size: 18px; color: #5f7a5f; }
+.dl__print {
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  color: #1f5f1f;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.dl__groups { display: flex; flex-direction: column; gap: 18px; }
+.dl-group { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.dl-group__head { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--green-850); color: #fff; }
+.dl-group__num { font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--green-300); }
+.dl-group__head h3 { flex: 1; font-family: var(--display); font-weight: 800; font-size: 18px; }
+.dl-group__progress { font-size: 13.5px; color: #cfe3cf; white-space: nowrap; }
+
+/* Column headings: wide screens only. */
+.dl-group__cols {
+  display: none;
+  gap: 16px;
+  padding: 10px 20px;
+  background: #f3f6f1;
+  border-bottom: 1px solid #e6ebe3;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #4d6a4d;
+}
+
+.dl-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  padding: 14px 20px;
+  border-top: 1px solid #eef0ea;
+}
+.dl-group__cols + .dl-row { border-top: 0; }
+.dl-row__item { flex: 3 1 260px; min-width: 0; }
+.dl-row__title { font-weight: 700; font-size: 15.5px; color: var(--green-900); line-height: 1.35; }
+.dl-row__sub { font-size: 13.5px; color: #55655a; line-height: 1.45; margin-top: 3px; }
+.dl-row__name { font-weight: 600; }
+.dl-row__hint { display: none; }
+.dl-row__date { flex: 0 0 170px; display: flex; flex-direction: column; gap: 4px; }
+.dl-row__date .input { padding: 9px 10px; }
+.dl-row__person { flex: 1.4 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.dl-row__label { font-family: var(--display); font-weight: 700; font-size: 12px; color: #4d6a4d; }
+.dl-row__remind {
+  flex: 1.4 1 160px;
+  min-width: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  color: #253525;
+}
+.dl-row__remind strong { font-weight: 700; color: var(--green-900); }
+.dl-row__nodate {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px dashed #b9c9b9;
+  border-radius: 99px;
+  color: #55655a;
+}
+.dl-row__action { flex: 0 0 36px; display: flex; justify-content: flex-end; }
+.dl-row__remove {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #e0e6dd;
+  background: #fff;
+  color: #5b6b5b;
+  font-size: 18px;
+  line-height: 1;
+}
+.dl-row__remove:hover { background: #f6eeee; color: #8a2a2a; border-color: #e6caca; }
+.dl-group__add { padding: 14px 20px; border-top: 1px solid #eef0ea; background: #fafbf8; }
+.dl-group__add button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 6px;
+  border: 1.5px solid var(--green-850);
+  background: #fff;
+  color: var(--green-850);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+}
+.dl-group__add button:hover { background: #eef5ee; }
+
+/* Wide: one line per row under column headings; field labels hidden. */
+@media (min-width: 1180px) {
+  .dl-group__cols { display: flex; }
+  .dl-group__cols span:nth-child(1), .dl-row__item { flex: 3 1 0; }
+  .dl-group__cols span:nth-child(2), .dl-row__date { flex: 0 0 170px; }
+  .dl-group__cols span:nth-child(3), .dl-row__person,
+  .dl-group__cols span:nth-child(4), .dl-row__remind { flex: 1.4 1 0; }
+  .dl-group__cols span:nth-child(5) { flex: 0 0 36px; }
+  .dl-row { flex-wrap: nowrap; }
+  .dl-row__label { display: none; }
+}
+
+/*
+ * Phones: each row is a stacked card section. Order: item (with the full
+ * default name above editable names), due date, its 60/30-day reminders
+ * directly under the date, then responsible person. The remove button sits
+ * beside the item name. (Kept from the pre-redesign mobile layout.)
+ */
+@media (max-width: 767px) {
+  .dl-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 16px;
+  }
+  .dl-row > * { grid-column: 1 / -1; min-width: 0; }
+  .dl-row__item { grid-column: 1; grid-row: 1; }
+  .dl-row__action { grid-column: 2; grid-row: 1; align-self: start; }
+  .dl-row__action:empty { display: none; }
+  .dl-row:has(.dl-row__action:empty) .dl-row__item { grid-column: 1 / -1; }
+  .dl-row__date { grid-row: 2; }
+  .dl-row__remind { grid-row: 3; margin-top: -4px; padding-left: 10px; border-left: 3px solid var(--line); }
+  .dl-row__person { grid-row: 4; }
+  .dl-row__hint {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .dl-row .input { font-size: 16px; }
+}
