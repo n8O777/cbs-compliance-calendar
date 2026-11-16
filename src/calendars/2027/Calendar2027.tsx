@@ -1,7 +1,5 @@
 import { CalendarStoreProvider } from "@/components/CalendarStore";
-import { FacilityReview } from "@/components/FacilityReview";
 import { MonthlyCalendar } from "@/components/MonthlyCalendar";
-import { Toolbar } from "@/components/Toolbar";
 import { STORAGE_KEY, YEAR } from "./config";
 import { SiteHeader } from "@/components/SiteHeader";
 import type { ProgressFields } from "@/components/progress";
@@ -12,6 +10,7 @@ import { HelpCta, TeamCta } from "./content/Ctas";
 import { FiveAreas } from "./content/FiveAreas";
 import { Footer, PrintHeader } from "./content/Footer";
 import { Hero } from "./content/Hero";
+import { Review } from "./content/Review";
 import { Rules } from "./content/Rules";
 import { Sources } from "./content/Sources";
 import { beforeJanuaryChecks } from "./data/before-january";
@@ -81,14 +80,7 @@ export function Calendar2027() {
 
         <Deadlines />
 
-        <section aria-labelledby="abc-h" id="abc-review">
-          <h2 id="abc-h">Annual facility self-review checklist</h2>
-          <p className="intro">With accreditation surveys now every year, walk through your facility well before your accreditation date, ideally 90 days ahead, so there&apos;s time to fix what you find. Check off what&apos;s in place and add notes.</p>
-          <FacilityReview categories={reviewCategories} />
-          <p className="rule-src">A general readiness checklist from CBS Medical Billing &amp; Consulting, built around common survey areas and the Medicare DMEPOS supplier standards. It doesn&apos;t replace your accrediting organization&apos;s standards. Check theirs for the full requirements.</p>
-        </section>
-
-        <Toolbar />
+        <Review />
 
         <TeamCta />
 
