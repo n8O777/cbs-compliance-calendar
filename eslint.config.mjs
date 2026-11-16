@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Design handoff: a reference prototype and its runtime, not app code.
+    "design/**",
+    // Local brand source files (gitignored).
+    "brand-assets copy/**",
   ]),
 ]);
 
