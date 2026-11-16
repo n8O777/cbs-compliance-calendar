@@ -1,1 +1,29 @@
-/* footer section. */
+/* Footer. */
+.site-footer { background: var(--green-950); color: #cfe0cf; }
+.site-footer__inner { max-width: 1240px; margin: 0 auto; padding: 56px var(--pad-x) 40px; }
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px 48px;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.site-footer__brand { flex: 1 1 320px; min-width: 0; }
+.site-footer__brand img { height: 96px; width: auto; }
+.site-footer__brand p { margin-top: 16px; font-size: 14px; line-height: 1.6; max-width: 380px; }
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+}
+.site-footer__nav a { color: #e4efe4; text-decoration: none; }
+.site-footer__nav a:hover { color: #fff; text-decoration: underline; }
+.site-footer__address { font-style: normal; font-size: 14px; line-height: 1.7; }
+.site-footer__address a { color: #fff; font-weight: 700; text-decoration: none; }
+.site-footer__address a:hover { text-decoration: underline; }
+.site-footer__legal { margin-top: 24px; font-size: 13px; line-height: 1.65; color: #b5cab5; max-width: 960px; }

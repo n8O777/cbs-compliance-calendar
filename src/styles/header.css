@@ -1,1 +1,77 @@
-/* header section. */
+/* Sticky header: the only sticky element on the page. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--green-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.site-header__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.site-header__logo { display: flex; align-items: center; flex: 0 0 auto; }
+.site-header__logo img { height: 52px; width: auto; }
+.site-header__cta {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 6px;
+  background: var(--green-800);
+  border: 1px solid #4d6e4d;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.site-header__cta:hover { background: #1f4a1f; color: #fff; }
+
+/* Below 1180px the nav drops to its own full-width, sideways-scrolling row. */
+.site-nav {
+  order: 3;
+  flex: 1 1 100%;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 0 -4px;
+  padding: 2px 4px 4px;
+  scrollbar-width: none;
+}
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a {
+  padding: 9px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  color: #e4efe4;
+  background: rgba(255, 255, 255, 0.06);
+  transition: background 0.2s, color 0.2s;
+}
+.site-nav a:hover { color: #fff; }
+.site-nav a[aria-current="true"] { background: var(--green-200); color: var(--green-900); }
+
+@media (min-width: 1180px) {
+  .site-nav {
+    order: 0;
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+  }
+  .site-nav a { background: transparent; }
+  .site-header__cta { margin-left: 0; }
+}

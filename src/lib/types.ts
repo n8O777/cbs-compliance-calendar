@@ -34,6 +34,8 @@ export interface DeadlineRow {
 export interface DeadlineGroup {
   title: string;
   rows: DeadlineRow[];
+  /** "Your own items": rows can be added and removed; `rows` are the defaults. */
+  custom?: boolean;
 }
 
 export interface ChecklistItem {

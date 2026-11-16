@@ -1,1 +1,86 @@
-/* hero section. */
+/* Hero (#top) and the "Your progress" card. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--green-900);
+  color: #fff;
+}
+.hero__inner {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(56px, 9vw, 110px) var(--pad-x) clamp(56px, 8vw, 96px);
+  align-items: center;
+}
+.hero__copy { flex: 1 1 520px; min-width: 0; }
+.hero__title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(44px, 7.2vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  margin: 22px 0 24px;
+  text-wrap: balance;
+}
+.hero__lead {
+  font-size: clamp(18px, 1.9vw, 21px);
+  line-height: 1.55;
+  color: #dbe9db;
+  margin: 0 0 32px;
+  max-width: 600px;
+  text-wrap: pretty;
+}
+.hero__phone { display: inline-flex; gap: 8px; text-decoration: none; }
+.hero__phone span { text-decoration: underline; text-underline-offset: 4px; }
+.hero__asof {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #b9d2b9;
+  max-width: 640px;
+}
+.hero__asof strong { color: #fff; font-weight: 600; }
+
+.progress-card {
+  flex: 0 1 380px;
+  min-width: 0;
+  width: 100%;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 10px;
+  border-top: 6px solid #9ccc9c;
+  box-shadow: var(--shadow-raised);
+  padding: 26px 24px 22px;
+}
+.progress-card__title { font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--green-900); }
+.progress-card__sub { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 6px 0 20px; }
+.progress-card__rows { display: flex; flex-direction: column; gap: 16px; }
+.progress-card__row { display: block; text-decoration: none; color: inherit; }
+.progress-card__row:hover { color: var(--green-900); }
+.progress-card__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--green-900);
+}
+.progress-card__count { font-weight: 600; color: #3d6a3d; }
+.progress-card__row .bar { margin-top: 8px; }
+.progress-card__note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 22px;
+  padding: 12px 14px;
+  background: #f3f7f1;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #334433;
+}
+.progress-card__note strong { font-weight: 600; }
+.progress-card__dot { flex: 0 0 8px; height: 8px; margin-top: 6px; border-radius: 50%; background: var(--green-600); }

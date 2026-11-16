@@ -5,9 +5,12 @@ import { MonthlyCalendar } from "@/components/MonthlyCalendar";
 import { PracticeDeadlines } from "@/components/PracticeDeadlines";
 import { Toolbar } from "@/components/Toolbar";
 import { STORAGE_KEY, YEAR } from "./config";
+import { SiteHeader } from "@/components/SiteHeader";
+import type { ProgressFields } from "@/components/progress";
 import { HelpCta, TeamCta } from "./content/Ctas";
 import { FiveAreas } from "./content/FiveAreas";
-import { Header } from "./content/Header";
+import { Footer, PrintHeader } from "./content/Footer";
+import { Hero } from "./content/Hero";
 import { Rules } from "./content/Rules";
 import { Sources } from "./content/Sources";
 import { beforeJanuaryChecks } from "./data/before-january";
@@ -16,14 +19,37 @@ import { areas, dateTypes } from "./data/labels";
 import { months } from "./data/months";
 import { deadlineGroups } from "./data/practice-deadlines";
 
-// The 2027 O&P Compliance Calendar. Section order and wording follow the
-// client's reference file (reference/erin-2027-complinace-calendar.html).
+const NAV = [
+  { id: "areas", label: "Five areas" },
+  { id: "requirements", label: "Requirements" },
+  { id: "before-january", label: "Before January" },
+  { id: "calendar", label: "Calendar" },
+  { id: "deadlines", label: "Deadlines" },
+  { id: "abc-review", label: "Self-review" },
+  { id: "sources", label: "Sources" },
+];
+
+const customGroup = deadlineGroups.find((g) => g.custom);
+
+// Stored field IDs the hero's progress card counts.
+const PROGRESS: ProgressFields = {
+  checks: beforeJanuaryChecks.map((c) => c.id),
+  deadlineRows: deadlineGroups.filter((g) => !g.custom).flatMap((g) => g.rows.map((r) => r.id)),
+  customRowDefaults: customGroup ? customGroup.rows.map((r) => r.id) : [],
+  reviewItems: reviewCategories.flatMap((c) => c.items.map((i) => i.id)),
+};
+
+// The 2027 O&P Compliance Calendar. Layout and wording follow the redesign
+// handoff (design/design_handoff_compliance_calendar_2027); the regulatory
+// content was carried over from the client's reference file.
 export function Calendar2027() {
   return (
     <CalendarStoreProvider storageKey={STORAGE_KEY}>
-      <Header />
+      <PrintHeader />
+      <SiteHeader nav={NAV} ctaLabel="Talk To CBS" />
 
-      <main className="wrap">
+      <main id="main">
+        <Hero progress={PROGRESS} />
         <FiveAreas />
         <Rules />
 
@@ -62,7 +88,7 @@ export function Calendar2027() {
         <Sources />
       </main>
 
-      <footer><div className="wrap">CBS Medical Billing &amp; Consulting · 19 Hampton Rd, Building B, Unit 16, Exeter, NH 03833 · cbsmedicalbilling.com</div></footer>
+      <Footer />
     </CalendarStoreProvider>
   );
 }

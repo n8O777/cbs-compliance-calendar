@@ -63,6 +63,7 @@ export const deadlineGroups: DeadlineGroup[] = [
   },
   {
     title: "Your own items",
+    custom: true,
     rows: [
       { id: "r28", item: "", sub: "", editableName: true },
       { id: "r29", item: "", sub: "", editableName: true },
