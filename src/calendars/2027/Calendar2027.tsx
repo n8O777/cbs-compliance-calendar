@@ -1,4 +1,5 @@
 import { CalendarStoreProvider } from "@/components/CalendarStore";
+import { PrintNotes } from "@/components/PrintNotes";
 import type { ProgressFields } from "@/components/progress";
 import { SiteHeader } from "@/components/SiteHeader";
 import { STORAGE_KEY } from "./config";
@@ -14,6 +15,7 @@ import { Rules } from "./content/Rules";
 import { Sources } from "./content/Sources";
 import { beforeJanuaryChecks } from "./data/before-january";
 import { reviewCategories } from "./data/facility-review";
+import { months } from "./data/months";
 import { deadlineGroups } from "./data/practice-deadlines";
 
 const NAV = [
@@ -52,6 +54,7 @@ export function Calendar2027() {
         <Calendar />
         <HelpCta />
         <Deadlines />
+        <PrintNotes months={months} heading="2027 month by month" />
         <Review />
         <TeamCta />
         <Sources />

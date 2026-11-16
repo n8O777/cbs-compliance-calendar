@@ -113,8 +113,8 @@
 }
 .dl-group__add button:hover { background: #eef5ee; }
 
-/* Wide: one line per row under column headings; field labels hidden. */
-@media (min-width: 1180px) {
+/* Wide (and print): one line per row under column headings; field labels hidden. */
+@media print, (min-width: 1180px) {
   .dl-group__cols { display: flex; }
   .dl-group__cols span:nth-child(1), .dl-row__item { flex: 3 1 0; }
   .dl-group__cols span:nth-child(2), .dl-row__date { flex: 0 0 170px; }
@@ -131,7 +131,7 @@
  * directly under the date, then responsible person. The remove button sits
  * beside the item name. (Kept from the pre-redesign mobile layout.)
  */
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .dl-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;

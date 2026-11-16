@@ -1,1 +1,80 @@
-/* print section. */
+/*
+ * Print: the branded print header, Your practice's deadlines, every month's
+ * notes (print-only list), and the self-review checklist, then the footer's
+ * legal disclaimer. Everything else is hidden. The self-review starts on a
+ * new page and collapsed groups print expanded.
+ */
+.print-notes__month h3 { font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--green-900); }
+
+@media print {
+  @page { margin: 14mm 12mm; }
+  html, body { background: #fff !important; color: #000; }
+  * {
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print,
+  .site-header,
+  .hero,
+  .areas,
+  .requirements,
+  .before,
+  .cal,
+  .cta,
+  .sources,
+  .site-footer__top,
+  .dl__counter,
+  .dl-row__action,
+  .dl-group__add,
+  .dl-group__cols span:nth-child(5) { display: none !important; }
+  .print-only { display: block !important; }
+
+  /* Print header. */
+  .print-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 0 0 16px;
+    margin: 0 0 18px;
+    border-bottom: 3px solid var(--green-850);
+  }
+  .print-header__org { font-family: var(--display); font-weight: 900; font-size: 26px; color: var(--green-900); }
+  .print-header__title { font-family: var(--display); font-weight: 800; font-size: 18px; color: var(--green-900); margin-top: 4px; }
+  .print-header__meta { font-size: 11px; text-align: right; color: #333; line-height: 1.5; }
+
+  /* Printed sections: no bands or side padding; each later one on a new page. */
+  .dl, .review, .print-notes { background: #fff !important; }
+  .container { padding: 0 0 18px; max-width: none; }
+  .h2 { font-size: 26px; margin: 0 0 8px; }
+  .lead { font-size: 12px; }
+  .dl__head { margin-bottom: 14px; }
+  .review { break-before: page; }
+
+  .dl-group, .dl-row, .review-item, .print-notes__month { break-inside: avoid; }
+  .dl-row { padding: 8px 12px; }
+  .dl-row__date { flex-basis: 130px !important; }
+  .dl-group__cols span:nth-child(2) { flex-basis: 130px !important; }
+  .dl-group__head { padding: 10px 12px; }
+  .dl-row__remind { font-size: 11.5px; }
+  .dl-row__remind span { white-space: nowrap; }
+
+  /* Collapsed self-review groups print expanded. */
+  .review-group__panel.is-collapsed { display: block !important; }
+  .review-group__chev { display: none; }
+  .review-group__head { min-height: 0; padding: 10px 12px; }
+  .review-item { padding: 6px 12px; }
+  .review__progress { position: static; }
+
+  .input { border-color: #bbb !important; background: #fff !important; }
+  textarea.input { resize: none; field-sizing: content; min-height: 60px; }
+
+  .print-notes__month { margin: 14px 0 0; }
+  .print-notes__month p { margin-top: 4px; white-space: pre-wrap; font-size: 13px; line-height: 1.55; }
+
+  .site-footer { background: #fff; color: #333; }
+  .site-footer__inner { padding: 12px 0 0; max-width: none; }
+  .site-footer__legal { color: #444; font-size: 10px; margin: 0; }
+}
