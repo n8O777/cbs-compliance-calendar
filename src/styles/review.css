@@ -49,7 +49,7 @@
 }
 .review-group__head[aria-expanded="true"] { background: #f7faf5; }
 .review-group__head:hover { background: #f1f6ef; }
-.review-group__num { flex: 0 0 26px; font-family: var(--display); font-weight: 800; font-size: 14px; color: var(--green-500); }
+.review-group__num { flex: 0 0 26px; font-family: var(--display); font-weight: 800; font-size: 14px; color: #3f7a3f; } /* design #5f9a5f, darkened for 4.5:1 contrast */
 .review-group__title { flex: 1; font-family: var(--display); font-weight: 800; font-size: 17px; color: var(--green-900); }
 .review-group__count {
   font-family: var(--display);

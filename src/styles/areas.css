@@ -1,6 +1,14 @@
-/* Five areas (#areas). wrap-reverse puts the heading above the cards on narrow screens. */
+/*
+ * Five areas (#areas). The intro comes first in the source (so headings are in
+ * order) and stacks above the cards on narrow screens; once both columns fit,
+ * the cards move to the left as in the design.
+ */
 .areas { position: relative; overflow: hidden; background: var(--green-850); color: #fff; }
-.areas__inner { position: relative; flex-wrap: wrap-reverse; align-items: flex-start; }
+.areas__inner { position: relative; align-items: flex-start; }
+@media (min-width: 1040px) {
+  .areas .areas__inner { flex-wrap: nowrap; }
+  .areas__list { order: -1; }
+}
 .areas__intro { flex: 1 1 340px; min-width: 0; }
 .areas__intro .h2 { color: #fff; margin: 18px 0; }
 .areas__lead { font-size: 18px; line-height: 1.6; color: #d6e6d6; margin: 0 0 28px; max-width: 440px; }

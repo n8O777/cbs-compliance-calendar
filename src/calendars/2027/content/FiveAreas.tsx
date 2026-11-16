@@ -7,6 +7,17 @@ export function FiveAreas() {
     <section id="areas" className="areas section">
       <Puzzle size={220} stroke="#2b5a2b" style={{ left: -70, bottom: -60, transform: "rotate(12deg)" }} />
       <div className="container split areas__inner">
+        <div className="areas__intro">
+          <Eyebrow variant="dark">Start here</Eyebrow>
+          <h2 className="h2">Five areas to put on your calendar</h2>
+          <p className="areas__lead">
+            Each one needs a date, an owner, and a reminder. The calendar and deadline table below are built
+            around these five.
+          </p>
+          <a href="#deadlines" className="areas__link">
+            Assign owners to each one <Arrow />
+          </a>
+        </div>
         <ol className="areas__list">
           <li>
             <span className="areas__n">01</span>
@@ -43,17 +54,6 @@ export function FiveAreas() {
             <p>Licenses, bonds, insurance, training, HIPAA, audits, and SOPs, each with an owner.</p>
           </li>
         </ol>
-        <div className="areas__intro">
-          <Eyebrow variant="dark">Start here</Eyebrow>
-          <h2 className="h2">Five areas to put on your calendar</h2>
-          <p className="areas__lead">
-            Each one needs a date, an owner, and a reminder. The calendar and deadline table below are built
-            around these five.
-          </p>
-          <a href="#deadlines" className="areas__link">
-            Assign owners to each one <Arrow />
-          </a>
-        </div>
       </div>
     </section>
   );

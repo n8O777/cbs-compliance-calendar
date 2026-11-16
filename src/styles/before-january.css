@@ -6,7 +6,7 @@
 .before__progress { background: #fff; border-radius: 10px; padding: 20px 22px; border: 1px solid #dfe5da; }
 .before__progress-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .before__count { font-family: var(--display); font-weight: 900; font-size: 36px; color: var(--green-900); line-height: 1; }
-.before__count span { font-size: 20px; color: #5f7a5f; }
+.before__count span { font-size: 20px; color: #566e56; } /* design #5f7a5f, darkened for 4.5:1 contrast */
 .before__status { font-family: var(--display); font-weight: 700; font-size: 14px; color: #3d6a3d; }
 .before__progress .bar { margin-top: 14px; }
 

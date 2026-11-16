@@ -13,7 +13,7 @@
 .dl__intro .lead { font-size: 17px; max-width: 720px; }
 .dl__counter { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .dl__count { font-family: var(--display); font-weight: 900; font-size: 30px; color: var(--green-900); line-height: 1; }
-.dl__count span { font-size: 18px; color: #5f7a5f; }
+.dl__count span { font-size: 18px; color: #566e56; } /* design #5f7a5f, darkened for 4.5:1 contrast */
 .dl__print {
   padding: 10px 0;
   border: 0;

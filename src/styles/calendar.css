@@ -83,7 +83,7 @@
   font-weight: 700;
   font-size: 14px;
 }
-.cal-month__tabs button.is-empty { color: #7a8a7a; }
+.cal-month__tabs button.is-empty { color: #5f6f5f; } /* design #7a8a7a, darkened for 4.5:1 contrast */
 .cal-month__tabs button[aria-selected="true"] { background: var(--green-850); color: #fff; }
 .cal-month__badge {
   min-width: 22px;
