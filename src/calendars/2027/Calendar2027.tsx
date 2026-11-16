@@ -1,12 +1,11 @@
 import { CalendarStoreProvider } from "@/components/CalendarStore";
-import { MonthlyCalendar } from "@/components/MonthlyCalendar";
-import { STORAGE_KEY, YEAR } from "./config";
-import { SiteHeader } from "@/components/SiteHeader";
 import type { ProgressFields } from "@/components/progress";
-import { Eyebrow } from "@/components/ui";
+import { SiteHeader } from "@/components/SiteHeader";
+import { STORAGE_KEY } from "./config";
 import { BeforeJanuary } from "./content/BeforeJanuary";
-import { Deadlines } from "./content/Deadlines";
+import { Calendar } from "./content/Calendar";
 import { HelpCta, TeamCta } from "./content/Ctas";
+import { Deadlines } from "./content/Deadlines";
 import { FiveAreas } from "./content/FiveAreas";
 import { Footer, PrintHeader } from "./content/Footer";
 import { Hero } from "./content/Hero";
@@ -15,8 +14,6 @@ import { Rules } from "./content/Rules";
 import { Sources } from "./content/Sources";
 import { beforeJanuaryChecks } from "./data/before-january";
 import { reviewCategories } from "./data/facility-review";
-import { areas, dateTypes } from "./data/labels";
-import { months } from "./data/months";
 import { deadlineGroups } from "./data/practice-deadlines";
 
 const NAV = [
@@ -47,46 +44,18 @@ export function Calendar2027() {
     <CalendarStoreProvider storageKey={STORAGE_KEY}>
       <PrintHeader />
       <SiteHeader nav={NAV} ctaLabel="Talk To CBS" />
-
       <main id="main">
         <Hero progress={PROGRESS} />
         <FiveAreas />
         <Rules />
-
         <BeforeJanuary />
-
-        <section id="calendar" className="cal section">
-          <div className="container">
-            <MonthlyCalendar
-              year={YEAR}
-              months={months}
-              areas={areas}
-              dateTypes={dateTypes}
-              heading={
-                <>
-                  <Eyebrow>The calendar</Eyebrow>
-                  <h2 className="h2">2027 month by month</h2>
-                  <p className="lead">
-                    Tap a label to show only that kind of date. Use the notes space in each month for your own
-                    deadlines and reminders.
-                  </p>
-                </>
-              }
-            />
-          </div>
-        </section>
-
+        <Calendar />
         <HelpCta />
-
         <Deadlines />
-
         <Review />
-
         <TeamCta />
-
         <Sources />
       </main>
-
       <Footer />
     </CalendarStoreProvider>
   );

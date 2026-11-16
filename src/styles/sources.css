@@ -1,1 +1,31 @@
-/* sources section. */
+/* Sources (#sources). The legal disclaimer now lives in the footer. */
+.sources { background: #fff; }
+.sources .container { padding-top: clamp(64px, 9vw, 104px); padding-bottom: clamp(64px, 9vw, 104px); }
+.sources .h2 { margin-bottom: 32px; }
+.sources__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 12px;
+}
+.sources__list li {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fbfcfa;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.sources__list a { font-weight: 600; }
+.sources__org {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3d7a3d;
+}
