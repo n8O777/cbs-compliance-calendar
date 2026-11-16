@@ -1,1 +1,57 @@
-/* areas section. */
+/* Five areas (#areas). wrap-reverse puts the heading above the cards on narrow screens. */
+.areas { position: relative; overflow: hidden; background: var(--green-850); color: #fff; }
+.areas__inner { position: relative; flex-wrap: wrap-reverse; align-items: flex-start; }
+.areas__intro { flex: 1 1 340px; min-width: 0; }
+.areas__intro .h2 { color: #fff; margin: 18px 0; }
+.areas__lead { font-size: 18px; line-height: 1.6; color: #d6e6d6; margin: 0 0 28px; max-width: 440px; }
+.areas__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-bottom: 2px solid #6fb86f;
+  padding-bottom: 4px;
+}
+.areas__link:hover { color: var(--green-300); }
+
+.areas__list {
+  flex: 1 1 560px;
+  min-width: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.areas__list li {
+  color: var(--green-900);
+  border-radius: 8px;
+  padding: 22px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.areas__n { flex: 0 0 44px; font-family: var(--display); font-weight: 800; font-size: 20px; }
+.areas__list h3 { flex: 1 1 170px; font-family: var(--display); font-weight: 800; font-size: 18px; line-height: 1.25; }
+.areas__list p { flex: 2 1 280px; font-size: 15px; line-height: 1.6; }
+
+/* Background ramp 01→05, with matching number and body colors. */
+.areas__list li:nth-child(1) { background: #fff; }
+.areas__list li:nth-child(1) .areas__n { color: #5f9a5f; }
+.areas__list li:nth-child(1) p { color: #334433; }
+.areas__list li:nth-child(2) { background: #eaf4ea; }
+.areas__list li:nth-child(2) .areas__n { color: #4d874d; }
+.areas__list li:nth-child(2) p { color: #2b3b2b; }
+.areas__list li:nth-child(3) { background: #d6ead6; }
+.areas__list li:nth-child(3) .areas__n { color: #3f7a3f; }
+.areas__list li:nth-child(3) p { color: #243424; }
+.areas__list li:nth-child(4) { background: #c2e0c2; }
+.areas__list li:nth-child(4) .areas__n { color: #336b33; }
+.areas__list li:nth-child(4) p { color: #1f2f1f; }
+.areas__list li:nth-child(5) { background: #aed6ae; }
+.areas__list li:nth-child(5) .areas__n { color: #285e28; }
+.areas__list li:nth-child(5) p { color: #1a2a1a; }

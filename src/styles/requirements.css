@@ -1,1 +1,40 @@
-/* requirements section. */
+/* What ABC and Medicare require (#requirements). */
+.requirements { background: #fff; }
+.requirements__lead { margin-bottom: 40px; max-width: 680px; }
+.requirements__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 24px;
+}
+.rule-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  padding: clamp(22px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+}
+.rule-card__kicker {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3d7a3d;
+}
+.rule-card h3 { font-family: var(--display); font-weight: 900; font-size: 26px; color: var(--green-900); margin: 8px 0 18px; }
+.rule-card ul { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; }
+.rule-card li {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid #e8ece5;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #334433;
+}
+.rule-card li:last-child { border-bottom: 1px solid #e8ece5; }
+.rule-card li strong { color: var(--green-900); font-weight: 700; }
+.rule__bullet { flex: 0 0 8px; height: 8px; margin-top: 9px; background: var(--green-500); }
+.rule-card__src { margin-top: auto; font-size: 14px; line-height: 1.6; color: var(--muted); }
