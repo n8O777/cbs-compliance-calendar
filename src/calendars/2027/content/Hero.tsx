@@ -26,7 +26,7 @@ export function Hero({ progress }: { progress: ProgressFields }) {
             </a>
           </div>
           <p className="hero__asof">
-            <strong>Regulatory information reviewed and current as of October 2, 2026.</strong> CMS requirements,
+            <strong>Regulatory information reviewed and current as of November 1, 2026.</strong> CMS requirements,
             payer policies, and effective dates can change. Verify current requirements with CMS, your DME MAC,
             your accrediting organization, applicable state authorities, and individual payers.
           </p>

@@ -49,7 +49,7 @@ export function PrintHeader() {
       <div className="print-header__meta">
         {site.phone} · {site.email}
         <br />
-        Regulatory information reviewed as of October 2, 2026
+        Regulatory information reviewed as of November 1, 2026
       </div>
     </div>
   );
