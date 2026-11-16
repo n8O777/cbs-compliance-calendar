@@ -6,6 +6,7 @@ import { Toolbar } from "@/components/Toolbar";
 import { STORAGE_KEY, YEAR } from "./config";
 import { SiteHeader } from "@/components/SiteHeader";
 import type { ProgressFields } from "@/components/progress";
+import { Eyebrow } from "@/components/ui";
 import { BeforeJanuary } from "./content/BeforeJanuary";
 import { HelpCta, TeamCta } from "./content/Ctas";
 import { FiveAreas } from "./content/FiveAreas";
@@ -55,10 +56,25 @@ export function Calendar2027() {
 
         <BeforeJanuary />
 
-        <section aria-labelledby="cal-h">
-          <h2 id="cal-h">2027 month by month</h2>
-          <p className="intro">Tap a label to show only that kind of date. Use the lined space under each month for your own deadlines and reminders.</p>
-          <MonthlyCalendar year={YEAR} months={months} areas={areas} dateTypes={dateTypes} />
+        <section id="calendar" className="cal section">
+          <div className="container">
+            <MonthlyCalendar
+              year={YEAR}
+              months={months}
+              areas={areas}
+              dateTypes={dateTypes}
+              heading={
+                <>
+                  <Eyebrow>The calendar</Eyebrow>
+                  <h2 className="h2">2027 month by month</h2>
+                  <p className="lead">
+                    Tap a label to show only that kind of date. Use the notes space in each month for your own
+                    deadlines and reminders.
+                  </p>
+                </>
+              }
+            />
+          </div>
         </section>
 
         <HelpCta />

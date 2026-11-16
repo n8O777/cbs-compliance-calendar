@@ -20,7 +20,6 @@ export interface CalendarMonth {
   notesId: string;
   name: string;
   items: CalendarItem[];
-  quiet?: string;
 }
 
 export interface DeadlineRow {

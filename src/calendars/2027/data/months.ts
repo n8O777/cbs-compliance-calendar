@@ -1,6 +1,10 @@
-// 2027 month-by-month calendar entries, in the original order.
-// Copied verbatim from the client's finalized reference file
-// (reference/erin-2027-complinace-calendar.html). Do not edit wording without approval.
+// 2027 month-by-month calendar entries.
+// Wording copied verbatim from the client's finalized reference file
+// (reference/erin-2027-complinace-calendar.html) and matches the redesign
+// handoff. Do not edit wording without approval. Order follows the handoff
+// (April's entries are in date order). "No fixed federal dates." is no longer
+// stored per month; the calendar shows it for months without confirmed or
+// recurring dates, as the handoff specifies.
 //
 // `notesId` is the stable localStorage field key for each month's notes.
 
@@ -67,7 +71,6 @@ export const months: CalendarMonth[] = [
         detail: "Keep sign-in records.",
       },
     ],
-    quiet: "No fixed federal dates.",
   },
   {
     notesId: "n2",
@@ -81,7 +84,6 @@ export const months: CalendarMonth[] = [
         detail: "Takes effect in every state on April 26.",
       },
     ],
-    quiet: "No fixed federal dates.",
   },
   {
     notesId: "n3",
@@ -102,18 +104,18 @@ export const months: CalendarMonth[] = [
         detail: "Suppliers in the exemption process may receive continued-exemption or withdrawal notices based on applicable claim-review results; a 90% or greater claim approval rate is required for continued exemption.",
       },
       {
-        date: "Apr 30",
-        type: "confirmed",
-        area: 3,
-        heading: "Prior authorization exemption opt-out deadline",
-        detail: "Suppliers choosing to opt out of the exemption process must submit the request to their DME MAC by April 30.",
-      },
-      {
         date: "Apr 26",
         type: "confirmed",
         area: 3,
         heading: "Upper limb prior auth (L3761, L3916) goes nationwide",
         detail: "",
+      },
+      {
+        date: "Apr 30",
+        type: "confirmed",
+        area: 3,
+        heading: "Prior authorization exemption opt-out deadline",
+        detail: "Suppliers choosing to opt out of the exemption process must submit the request to their DME MAC by April 30.",
       },
     ],
   },
@@ -143,7 +145,6 @@ export const months: CalendarMonth[] = [
         detail: "Fire drill, first aid kits, extinguisher inspections, and chemical labels.",
       },
     ],
-    quiet: "No fixed federal dates.",
   },
   {
     notesId: "n5",
