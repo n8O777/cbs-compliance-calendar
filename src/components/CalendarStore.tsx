@@ -3,10 +3,11 @@
 import { createContext, useContext, useSyncExternalStore, type ReactNode } from "react";
 import {
   getCalendarStore,
-  STATUS_INITIAL,
+  SAVED_AT_FIELD,
   type CalendarStore,
   type Entries,
   type FieldValue,
+  type SaveState,
 } from "@/lib/storage";
 
 const StoreContext = createContext<CalendarStore | null>(null);
@@ -43,12 +44,31 @@ export function useField(field: string): FieldValue | undefined {
   );
 }
 
+/** A stored text field, or "" when unset. */
+export function useText(field: string): string {
+  const value = useField(field);
+  return typeof value === "string" ? value : "";
+}
+
 export function useEntries(): Entries {
   const store = useCalendarStore();
   return useSyncExternalStore(store.subscribe, store.getEntries, () => NO_ENTRIES);
 }
 
-export function useSaveStatus(): string {
+export function useSaveState(): SaveState {
   const store = useCalendarStore();
-  return useSyncExternalStore(store.subscribe, store.getStatus, () => STATUS_INITIAL);
+  return useSyncExternalStore(store.subscribe, store.getSaveState, () => "idle");
+}
+
+/** "Last saved Nov 16, 2:05 PM." once anything has been saved, else "". */
+export function useSavedLabel(): string {
+  const savedAt = useField(SAVED_AT_FIELD);
+  if (typeof savedAt !== "string") return "";
+  const date = new Date(savedAt);
+  if (Number.isNaN(date.getTime())) return "";
+  return (
+    "Last saved " +
+    date.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) +
+    "."
+  );
 }

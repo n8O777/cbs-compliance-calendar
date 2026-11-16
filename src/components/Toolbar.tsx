@@ -1,10 +1,13 @@
 "use client";
 
-import { useCalendarStore, useSaveStatus } from "./CalendarStore";
+import { useCalendarStore, useSaveState } from "./CalendarStore";
 
 export function Toolbar() {
   const store = useCalendarStore();
-  const status = useSaveStatus();
+  const status =
+    useSaveState() === "failed"
+      ? "Entries can't be saved in this browser. Print or save as PDF to keep them."
+      : "Your entries save on this device only.";
   return (
     <div className="tools">
       <button type="button" className="btn" id="print" onClick={() => window.print()}>
